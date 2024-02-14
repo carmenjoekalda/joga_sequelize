@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Author.hasMany(models.Article, {
+        foreignKey: 'author_id',
+      });
     }
   }
   Author.init({
@@ -26,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     } 
   }, {
     sequelize,
-    modelName: 'Authors',
+    modelName: 'Author',
+    tableName: 'Authors'
   });
   return Author;
 };
