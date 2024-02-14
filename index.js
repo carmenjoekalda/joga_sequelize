@@ -20,10 +20,10 @@ sequelize
         console.log('Unable to connect to the database:', err);
     });
 
-// simple route
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to sequelize application" });
-});
+// using routes and controllers
+const articleRouter = require('./routes/article');
+app.use('/', articleRouter);
+
 
 // listen requests
 app.listen(3003, () => {
