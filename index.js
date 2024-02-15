@@ -24,6 +24,7 @@ sequelize
 const articleRouter = require('./routes/article');
 app.use('/', articleRouter);
 app.use('/article', articleRouter)
+app.use('/author', articleRouter)
 
 
 // listen requests
