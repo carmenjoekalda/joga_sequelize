@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+// templating engine
+app.set('view engine', 'ejs');
+
 // parse requests of content-type - application/json
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
