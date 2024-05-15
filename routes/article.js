@@ -7,8 +7,8 @@ router.get('/', articleController.getAllArticles);
 router.get('/article/:slug', articleController.getArticleBySlug);
 router.get('/author/:id', articleController.getArticleByAuthor);
 router.post('/admin/article/create', articleAdminController.createArticle);
-
 router.get('/admin/article/edit/:id', articleAdminController.updateArticle);
 router.post('/admin/article/edit/:id', articleAdminController.updateArticle);
+router.post('/admin/article/delete/:id', articleAdminController.deleteArticle);
 
 module.exports = router;

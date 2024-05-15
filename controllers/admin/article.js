@@ -77,7 +77,27 @@ const updateArticle = async (req, res) => {
     }
 };
 
+// delete the article
+const deleteArticle = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const result = await models.Article.destroy({
+            where: { id: id }
+        });
+
+        if (result > 0) {
+            res.send("Article successfully deleted");
+        } else {
+            res.status(404).send("Article not found");
+        }
+    } catch (error) {
+        console.error("Error deleting article:", error);
+        res.status(500).send("Error deleting article");
+    }
+};
+
 // export functions
 module.exports = {
-    createArticle, updateArticle
+    createArticle, updateArticle, deleteArticle
 };
